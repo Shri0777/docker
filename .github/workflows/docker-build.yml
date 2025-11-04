@@ -21,7 +21,7 @@ jobs:
 
       - name: Modify application file inside container
         run: |
-          docker exec my-running-app bash -c "echo '<h1>Modified Version!</h1>' > /app/templates/index.html"
+          docker exec my-running-app bash -c "sed -i 's/Hello from version 1!/Hello from version 2 - modified container!/' /app/app.py"
 
       - name: Commit modified container as new image
         run: |
